@@ -1,0 +1,33 @@
+type Query {
+  getTimeSeries(asset: String!): TimeSeries
+  getMetrics(asset: String!): Metrics
+  getAssets: [Asset!]!
+}
+
+type TimeSeries {
+  values: [Axis!]!
+}
+
+type Axis {
+  time: String!
+  open: Float!
+  high: Float!
+  low: Float!
+  close: Float!
+  volume: Float!
+}
+
+type Metrics {
+  currentUSDPrice: Float!
+  ath: Float!
+  athDate: String!
+  marketCapRank: Int!
+  marketCapUSD: Float!
+}
+
+type Asset {
+  id: ID!
+  slug: String!
+  symbol: String!
+  name: String!
+}
